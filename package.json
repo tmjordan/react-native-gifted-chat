@@ -1,9 +1,9 @@
 {
   "name": "react-native-gifted-chat",
-  "version": "0.8.0",
+  "version": "0.7.2",
   "description": "The most complete chat UI for React Native",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FaridSafi/react-native-gifted-chat.git"
@@ -25,32 +25,18 @@
   },
   "homepage": "https://github.com/FaridSafi/react-native-gifted-chat#readme",
   "scripts": {
-    "lint": "tslint --project .",
-    "tsc": "tsc --noEmit",
-    "build": "rm -rf lib/ && tsc",
+    "lint": "eslint . --ext .js,.jsx",
     "precommit": "yarn lint",
-    "test": "TZ=Europe/Paris jest --no-watchman",
-    "test:watch": "TZ=Europe/Paris jest --watch",
-    "test:coverage": "TZ=Europe/Paris jest --coverage",
-    "prepublishOnly": "yarn lint && yarn build && yarn test"
+    "test": "jest --no-watchman",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "appr": "cd example-expo && ./setPRVersion.js && yarn && yarn appr",
+    "deploy": "cd example-expo && yarn install && exp login --username $EXP_USERNAME --password $EXP_PASSWORD && exp publish --non-interactive"
   },
   "jest": {
     "preset": "react-native",
     "setupFiles": [
       "./tests/setup.js"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "json",
-      "ts",
-      "tsx"
-    ],
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
-    },
-    "testMatch": [
-      "**/*.test.ts?(x)"
     ],
     "modulePathIgnorePatterns": [
       "<rootDir>/example",
@@ -59,28 +45,25 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-typescript": "^7.1.0",
-    "@types/jest": "24.0.11",
-    "@types/react": "^16.7.17",
-    "@types/react-native": "^0.57.19",
-    "@types/react-native-communications": "2.2.1",
-    "@types/react-native-video": "3.1.2",
-    "@types/react-test-renderer": "16.8.1",
-    "@types/uuid": "3.4.4",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "24.7.1",
-    "metro-react-native-babel-preset": "0.53.1",
+    "@types/react": "^16.0.38",
+    "@types/react-native": "^0.57.35",
+    "babel": "6.23.0",
+    "babel-eslint": "10.0.1",
+    "babel-jest": "23.0.0",
+    "babel-preset-react-native": "4.0.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-config-cooperka": "0.2.9",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-react-native": "3.2.1",
     "husky": "0.15.0-rc.2",
-    "jest": "24.7.1",
-    "prettier": "1.15.3",
+    "jest": "22.1.4",
     "prop-types": "15.6.2",
     "react": "16.8.1",
-    "react-native": "0.57.7",
-    "react-test-renderer": "16.8.1",
-    "tslint": "5.12.0",
-    "tslint-config-prettier": "1.17.0",
-    "typescript": "3.2.2"
+    "react-native": "0.51.0",
+    "react-test-renderer": "16.8.1"
   },
   "dependencies": {
     "@expo/react-native-action-sheet": "^2.0.1",
@@ -88,12 +71,12 @@
     "react-native-communications": "2.2.1",
     "react-native-lightbox": "^0.7.0",
     "react-native-parsed-text": "^0.0.20",
-    "react-native-video": "^3.2.1",
     "uuid": "3.3.0"
   },
   "peerDependencies": {
     "prop-types": "*",
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-video": "*"
   }
 }

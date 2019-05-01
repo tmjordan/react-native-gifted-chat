@@ -9,7 +9,8 @@
   💬 Gifted Chat
 </h3>
 <p align="center">
-  The most complete chat UI for React Native
+  The most complete chat UI for React Native <br/>
+  <small>formerly known as Gifted Messenger</small>
 </p>
 <p align="center">
   <a href="https://www.npmjs.com/package/react-native-gifted-chat">
@@ -33,27 +34,8 @@
   <a href="https://snack.expo.io/@xcarpentier/gifted-chat" target="_blank"><i>demo</i></a>
 </p>
 
-## Sponsor
-
-<p align="center">
-  <br/>
-  <a href="https://www.lereacteur.io" target="_blank">
-    <img src="https://raw.githubusercontent.com/FaridSafi/react-native-gifted-chat/sponsor-lereacteur/media/logo_sponsor.png">
-  </a>
-  <br>
-  <p align="center">
-    Coding Bootcamp in Paris co-founded by Farid Safi
-  </p>
-  <a href="https://www.lereacteur.io" target="_blank">
-    <p align="center">
-      Click to learn more
-    </p>
-  </a>
-</p>
-
 ## Features
 
-- Write with **TypeScript** (since 0.8.0)
 - Fully customizable components
 - Composer actions (to attach photos, etc.)
 - Load earlier messages
@@ -65,7 +47,6 @@
 - InputToolbar avoiding keyboard
 - Redux support
 - System message
-- **Bot message implementation [soon](https://github.com/FaridSafi/react-native-gifted-chat/pull/1211)**
 
 ## Dependency
 
@@ -227,23 +208,20 @@ e.g. System Message
 - **`onInputTextChanged`** _(Function)_ - Callback when the input text changes
 - **`maxInputLength`** _(Integer)_ - Max message composer TextInput length
 - **`parsePatterns`** _(Function)_ - Custom parse patterns for [react-native-parsed-text](https://github.com/taskrabbit/react-native-parsed-text) used to linkify message content (like URLs and phone numbers), e.g.:
-
-```js
- <GiftedChat
-   parsePatterns={(linkStyle) => [
-     { type: 'phone', style: linkStyle, onPress: this.onPressPhoneNumber },
-     { pattern: /#(\w+)/, style: { ...linkStyle, styles.hashtag }, onPress: this.onPressHashtag },
-   ]}
- />
-```
-
+ ```js
+  <GiftedChat
+    parsePatterns={(linkStyle) => [
+      { type: 'phone', style: linkStyle, onPress: this.onPressPhoneNumber },
+      { pattern: /#(\w+)/, style: { ...linkStyle, styles.hashtag }, onPress: this.onPressHashtag },
+    ]}
+  />
+  ```
 - **`extraData`** _(Object)_ - Extra props for re-rendering FlatList on demand. This will be useful for rendering footer etc.
 - **`minComposerHeight`** _(Object)_ - Custom min height of the composer.
 - **`maxComposerHeight`** _(Object)_ - Custom max height of the composer.
-
-* **`scrollToBottom`** _(Bool)_ - Enables the scrollToBottom Component (Default is false)
-* **`scrollToBottomComponent`** _(Function)_ - Custom Scroll To Bottom Component container
-* **`scrollToBottomOffset`** _(Integer)_ - Custom Height Offset upon which to begin showing Scroll To Bottom Component (Default is 200)
+* **`scrollToBottom`** _(Bool)_ - Enables the scrollToBottom Component (Default is false)    
+* **`scrollToBottomComponent`** _(Function)_ - Custom Scroll To Bottom Component container  
+* **`scrollToBottomOffset`** _(Integer)_ - Custom Height Offset upon which to begin showing Scroll To Bottom Component (Default is 200)  
 * **`alignTop`** _(Boolean)_ Controls whether or not the message bubbles appear at the top of the chat (Default is false - bubbles align to bottom)
 
 ## Imperative methods
